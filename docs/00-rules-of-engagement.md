@@ -1,4 +1,30 @@
+---
+title: "Rules of Engagement"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # Rules of Engagement
+
+## Table of Contents
+
+- [Before You Touch the Target](#before-you-touch-the-target)
+- [Three Questions Before Every Test](#three-questions-before-every-test)
+- [Keep the Proof Small](#keep-the-proof-small)
+- [Handle Evidence Like It Matters](#handle-evidence-like-it-matters)
+- [Turn Policy into a Test Plan](#turn-policy-into-a-test-plan)
+- [Accounts and Test Data](#accounts-and-test-data)
+- [Automation Guardrails](#automation-guardrails)
+- [When to Stop and Contact the Program](#when-to-stop-and-contact-the-program)
+- [Evidence Hygiene](#evidence-hygiene)
+- [Pre-Test Checklist](#pre-test-checklist)
 
 The easiest mistake in bug bounty is starting with the endpoint instead of the program rules. Five minutes spent on scope can save hours of testing the wrong asset.
 
@@ -96,3 +122,9 @@ Never commit raw session cookies, authorization headers, private source, or user
 - [ ] Test data contains no real user information.
 - [ ] Stop condition written down.
 - [ ] Evidence storage is private.
+
+---
+
+## Chapter Navigation
+
+[README](../README.md) · [Back to README](../README.md) · [Next: Testing Workflow](01-testing-workflow.md)

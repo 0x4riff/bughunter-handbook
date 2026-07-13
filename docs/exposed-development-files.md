@@ -1,4 +1,33 @@
+---
+title: "Exposed Development Files"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # Exposed Development Files
+
+## Table of Contents
+
+- [What May Leak](#what-may-leak)
+- [Where to Look](#where-to-look)
+- [Establish a Real Baseline](#establish-a-real-baseline)
+- [Small Targeted Discovery](#small-targeted-discovery)
+- [Safe Secret Triage](#safe-secret-triage)
+- [Git Exposure: Proving the Right Thing](#git-exposure-proving-the-right-thing)
+- [Artifact-by-Artifact Triage](#artifact-by-artifact-triage)
+- [Chaining Without Overreaching](#chaining-without-overreaching)
+- [False Positives](#false-positives)
+- [Report Checklist](#report-checklist)
+- [Report Skeleton](#report-skeleton)
+- [Remediation](#remediation)
+- [Hunter's Summary](#hunters-summary)
 
 Development artifacts sometimes reach a public web root with the application. Useful findings come from the information inside them—not from a `200`, `403`, or interesting filename.
 
@@ -317,3 +346,9 @@ Build baseline
 ```
 
 Development-file testing is not a contest to collect filenames. One real artifact with clear impact is enough.
+
+---
+
+## Chapter Navigation
+
+[Previous: Exposed and Backup Files](exposed-files.md) · [Back to README](../README.md) · [Next: Subdomain Takeover](subdomain-takeover.md)

@@ -1,4 +1,37 @@
+---
+title: "OAuth & OpenID Connect Techniques"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # OAuth & OpenID Connect Techniques
+
+## Table of Contents
+
+- [Draw the Flow First](#draw-the-flow-first)
+- [Redirect URI Handling](#redirect-uri-handling)
+- [State, Nonce, and Browser Session](#state-nonce-and-browser-session)
+- [PKCE](#pkce)
+- [Issuer and Audience](#issuer-and-audience)
+- [Account Linking](#account-linking)
+- [Token Lifecycle](#token-lifecycle)
+- [Current Baseline](#current-baseline)
+- [Flow Checklist](#flow-checklist)
+- [Report Title Pattern](#report-title-pattern)
+- [Components to Record](#components-to-record)
+- [Redirect Validation](#redirect-validation)
+- [Login CSRF and Account Confusion](#login-csrf-and-account-confusion)
+- [Token Validation](#token-validation)
+- [Refresh and Revocation](#refresh-and-revocation)
+- [Deprecated Patterns](#deprecated-patterns)
+- [Remediation](#remediation)
 
 OAuth testing is mostly relationship testing: client, authorization server, redirect URI, browser session, authorization code, token, issuer, audience, and user consent must stay bound together.
 
@@ -83,3 +116,9 @@ RFC 9700 deprecates weaker practices including the implicit grant and recommends
 ## Remediation
 
 Follow current protocol libraries and RFC 9700. Avoid custom token validation, exact-match redirect URIs, bind browser flows, validate issuer and audience, and protect refresh tokens through rotation or sender constraints.
+
+---
+
+## Chapter Navigation
+
+[Previous: Webhooks & Integrations](webhooks-integrations.md) · [Back to README](../README.md) · [Next: Account Takeover Chains](account-takeover-chains.md)

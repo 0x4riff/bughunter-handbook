@@ -1,0 +1,2 @@
+host,version,method,path,object,action,auth,roles,tenant_bound,source,notes
+api.example.test,v1,GET,/objects/{id},object,read,bearer,member,yes,official-client,controlled IDs only

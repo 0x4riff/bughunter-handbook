@@ -1,4 +1,35 @@
+---
+title: "Cross-Site Scripting"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # Cross-Site Scripting
+
+## Table of Contents
+
+- [Follow the Input](#follow-the-input)
+- [A Calm Testing Loop](#a-calm-testing-loop)
+- [DOM XSS](#dom-xss)
+- [Things That Look Better Than They Are](#things-that-look-better-than-they-are)
+- [Fix Direction](#fix-direction)
+- [Context Cheat Sheet](#context-cheat-sheet)
+- [Triage Sequence](#triage-sequence)
+- [Report Title Pattern](#report-title-pattern)
+- [Sources to Map](#sources-to-map)
+- [Context Matters](#context-matters)
+- [Stored and Second-Order Paths](#stored-and-second-order-paths)
+- [DOM Data Flow](#dom-data-flow)
+- [Browser Controls](#browser-controls)
+- [Impact Proof](#impact-proof)
+- [Remediation](#remediation)
 
 XSS testing gets noisy when it starts with payloads. Start with data flow instead: where can you place input, where does it appear, and how does the browser parse that location?
 
@@ -85,3 +116,9 @@ Use a minimal visible effect or controlled callback only when allowed. Avoid ste
 ## Remediation
 
 Encode for exact output context, use safe DOM APIs, sanitize rich HTML with a maintained library, validate URLs, adopt Trusted Types where practical, and deploy CSP as defense in depth.
+
+---
+
+## Chapter Navigation
+
+[Previous: Account Takeover Chains](account-takeover-chains.md) · [Back to README](../README.md) · [Next: Content Security Policy](csp.md)

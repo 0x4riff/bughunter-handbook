@@ -1,4 +1,33 @@
+---
+title: "Prototype Pollution"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # Prototype Pollution
+
+## Table of Contents
+
+- [Trace the Whole Chain](#trace-the-whole-chain)
+- [Browser and Server Risk Differ](#browser-and-server-risk-differ)
+- [Common Dead Ends](#common-dead-ends)
+- [Fix Direction](#fix-direction)
+- [Evidence Ladder](#evidence-ladder)
+- [Practical Review Targets](#practical-review-targets)
+- [Report Title Pattern](#report-title-pattern)
+- [Sources and Operations](#sources-and-operations)
+- [Dangerous Key Handling](#dangerous-key-handling)
+- [Client-Side Gadgets](#client-side-gadgets)
+- [Server-Side Risk](#server-side-risk)
+- [Dependency Findings](#dependency-findings)
+- [Remediation](#remediation)
 
 Prototype pollution begins with an unsafe object operation, but a useful finding needs more: attacker-controlled keys must reach it, shared behavior must change, and a security-relevant gadget must use that change.
 
@@ -70,3 +99,9 @@ A vulnerable package version is a lead. Confirm that the vulnerable function is 
 ## Remediation
 
 Use schema validation, reject dangerous keys recursively, prefer safe data structures and maintained libraries, update dependencies, and add regression tests for nested and encoded input.
+
+---
+
+## Chapter Navigation
+
+[Previous: Race Conditions](race-conditions.md) · [Back to README](../README.md) · [Next: Testing 403 Responses](403-testing.md)

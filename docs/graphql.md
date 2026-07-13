@@ -1,4 +1,33 @@
+---
+title: "GraphQL"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # GraphQL
+
+## Table of Contents
+
+- [Learn the Shape of the API](#learn-the-shape-of-the-api)
+- [Test Resolver Boundaries](#test-resolver-boundaries)
+- [Query Abuse Without Load Testing](#query-abuse-without-load-testing)
+- [Fix Direction](#fix-direction)
+- [Practical Query Review](#practical-query-review)
+- [Report Title Pattern](#report-title-pattern)
+- [Capture and Read Operations](#capture-and-read-operations)
+- [Global and Nested IDs](#global-and-nested-ids)
+- [Mutations](#mutations)
+- [Aliases and Batching](#aliases-and-batching)
+- [Query Cost and Pagination](#query-cost-and-pagination)
+- [Subscriptions and Persisted Queries](#subscriptions-and-persisted-queries)
+- [Remediation](#remediation)
 
 GraphQL changes how an API is queried, not the security rules behind it. Every resolver still needs to know who is asking, which object is being loaded, and what action is allowed.
 
@@ -74,3 +103,9 @@ If used by official clients, test subscription authorization at connection and e
 ## Remediation
 
 Authorize inside each resolver or consistent policy layer, bind loaders to tenant context, validate mutation schemas, bound depth and cost, enforce pagination, and sanitize production errors.
+
+---
+
+## Chapter Navigation
+
+[Previous: Mobile API Testing](mobile-api-testing.md) · [Back to README](../README.md) · [Next: Webhooks & Integrations](webhooks-integrations.md)

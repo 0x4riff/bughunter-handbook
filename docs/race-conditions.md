@@ -1,4 +1,34 @@
+---
+title: "Race Conditions"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # Race Conditions
+
+## Table of Contents
+
+- [Find Single-Use Assumptions](#find-single-use-assumptions)
+- [Establish Normal Timing](#establish-normal-timing)
+- [Verify Authoritative State](#verify-authoritative-state)
+- [Watch for Multi-Endpoint Races](#watch-for-multi-endpoint-races)
+- [Safety](#safety)
+- [Fix Direction](#fix-direction)
+- [Candidate Ranking](#candidate-ranking)
+- [Report Title Pattern](#report-title-pattern)
+- [Prepare Controlled State](#prepare-controlled-state)
+- [Synchronization Without Flooding](#synchronization-without-flooding)
+- [Single-Endpoint and Multi-Endpoint Races](#single-endpoint-and-multi-endpoint-races)
+- [Verify Persistence](#verify-persistence)
+- [Evidence Timeline](#evidence-timeline)
+- [Remediation](#remediation)
 
 Race conditions appear when two requests act on the same state before either sees the other's result.
 
@@ -67,3 +97,9 @@ Record request start, response time, request ID, resulting state, and cleanup. S
 ## Remediation
 
 Perform checks and updates atomically. Use database constraints, compare-and-set state, idempotency keys, appropriate isolation or locks, and replay-safe external operations.
+
+---
+
+## Chapter Navigation
+
+[Previous: HTTP Request Smuggling](http-request-smuggling.md) · [Back to README](../README.md) · [Next: Prototype Pollution](prototype-pollution.md)

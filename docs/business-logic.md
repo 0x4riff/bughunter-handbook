@@ -1,4 +1,32 @@
+---
+title: "Business Logic"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # Business Logic
+
+## Table of Contents
+
+- [Draw the Workflow](#draw-the-workflow)
+- [Questions That Find Useful Edges](#questions-that-find-useful-edges)
+- [Prove the Final State](#prove-the-final-state)
+- [Fix Direction](#fix-direction)
+- [Workflow Test Matrix](#workflow-test-matrix)
+- [Practical Tip](#practical-tip)
+- [Report Title Pattern](#report-title-pattern)
+- [Identify Invariants](#identify-invariants)
+- [Value Sources](#value-sources)
+- [Failure and Recovery Paths](#failure-and-recovery-paths)
+- [Role and Approval Chains](#role-and-approval-chains)
+- [Reporting](#reporting)
 
 Business-logic bugs live in the gap between what an endpoint accepts and what the product is supposed to allow. They often look ordinary at the HTTP layer.
 
@@ -78,3 +106,9 @@ Test self-approval, approval after role removal, duplicate approval, lower-role 
 ## Reporting
 
 Describe the invariant, exact transition sequence, authoritative final state, and measurable effect. “Business logic issue” is too broad for a useful title.
+
+---
+
+## Chapter Navigation
+
+[Previous: Multi-Tenant SaaS Testing](multi-tenant-saas.md) · [Back to README](../README.md) · [Next: API Testing Techniques](api-techniques.md)

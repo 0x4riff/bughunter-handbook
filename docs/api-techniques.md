@@ -1,4 +1,38 @@
+---
+title: "API Testing Techniques"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # API Testing Techniques
+
+## Table of Contents
+
+- [Build an Endpoint Inventory](#build-an-endpoint-inventory)
+- [Object-Level Checks](#object-level-checks)
+- [Property-Level Checks](#property-level-checks)
+- [Function-Level Checks](#function-level-checks)
+- [Pagination and Filters](#pagination-and-filters)
+- [Content-Type and Parser Differences](#content-type-and-parser-differences)
+- [Async and Bulk Operations](#async-and-bulk-operations)
+- [Sensitive Business Flows](#sensitive-business-flows)
+- [Resource Consumption](#resource-consumption)
+- [Fast Endpoint Checklist](#fast-endpoint-checklist)
+- [Report Title Pattern](#report-title-pattern)
+- [Discovery Sources](#discovery-sources)
+- [Authentication Tests](#authentication-tests)
+- [Authorization Layers](#authorization-layers)
+- [Mass Assignment Review](#mass-assignment-review)
+- [Version and Inventory Drift](#version-and-inventory-drift)
+- [Error and Schema Disclosure](#error-and-schema-disclosure)
+- [Remediation](#remediation)
 
 Modern APIs expose more than object IDs. Test authorization at object, property, function, and workflow level.
 
@@ -84,3 +118,9 @@ Errors may reveal object types, internal paths, SQL fragments, service names, or
 ## Remediation
 
 Maintain an API inventory, retire old versions, validate schemas, enforce policy centrally at every object and property access, bound expensive operations, and treat third-party API data as untrusted.
+
+---
+
+## Chapter Navigation
+
+[Previous: Business Logic](business-logic.md) · [Back to README](../README.md) · [Next: Mobile API Testing](mobile-api-testing.md)

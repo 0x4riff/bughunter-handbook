@@ -6,7 +6,9 @@
 
 [![Markdown checks](https://github.com/0x4riff/bughunter-handbook/actions/workflows/markdown.yml/badge.svg)](https://github.com/0x4riff/bughunter-handbook/actions/workflows/markdown.yml)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/license-CC%20BY--SA%204.0-2b6cb0.svg)](LICENSE)
-[![Topics](https://img.shields.io/badge/topics-16-111827.svg)](#handbook-map)
+[![Release](https://img.shields.io/github/v/release/0x4riff/bughunter-handbook?label=release)](https://github.com/0x4riff/bughunter-handbook/releases)
+[![Topics](https://img.shields.io/badge/topics-39-111827.svg)](#handbook-map)
+[![Labs](https://img.shields.io/badge/local%20labs-5-0f766e.svg)](labs/)
 [![Made for bug hunters](https://img.shields.io/badge/made%20for-bug%20hunters-7c3aed.svg)](#who-this-is-for)
 
 *Less payload collecting. More careful thinking.*
@@ -94,6 +96,28 @@ Use targeted paths, baseline calibration, secret triage, Git evidence levels, an
 </tr>
 </table>
 
+## Learning Paths
+
+| Path | Recommended order |
+| :--- | :--- |
+| Beginner | [Rules](docs/00-rules-of-engagement.md) → [Workflow](docs/01-testing-workflow.md) → [Evidence](docs/02-evidence-and-reporting.md) → [Field Tips](docs/03-field-tips.md) |
+| API hunter | [API](docs/api-techniques.md) → [Authorization](docs/authorization.md) → [Multi-Tenant SaaS](docs/multi-tenant-saas.md) → [GraphQL](docs/graphql.md) → [Mobile API](docs/mobile-api-testing.md) |
+| Identity hunter | [Authentication](docs/authentication-session-management.md) → [Password Reset](docs/password-reset.md) → [JWT](docs/jwt.md) → [OAuth](docs/oauth-techniques.md) → [ATO Chains](docs/account-takeover-chains.md) |
+| Web hunter | [XSS](docs/xss.md) → [CSRF](docs/csrf.md) → [Uploads](docs/file-upload.md) → [SSRF](docs/ssrf.md) → [Cache](docs/web-cache.md) |
+| Report writing | [Evidence](docs/02-evidence-and-reporting.md) → [Finding Report](templates/finding-report.md) → [Redaction](templates/evidence-redaction-checklist.md) |
+| Local practice | [Authorization](labs/authorization/) → [GraphQL](labs/graphql/) → [OAuth](labs/oauth/) → [Race](labs/race-condition/) → [Exposed Files](labs/exposed-files/) |
+
+## Complete Topic Index
+
+| Area | Chapters |
+| :--- | :--- |
+| Identity | [Authentication](docs/authentication-session-management.md), [Password Reset](docs/password-reset.md), [JWT](docs/jwt.md), [OAuth/OIDC](docs/oauth-techniques.md), [Account Takeover Chains](docs/account-takeover-chains.md) |
+| Access and logic | [Authorization](docs/authorization.md), [Multi-Tenant SaaS](docs/multi-tenant-saas.md), [Business Logic](docs/business-logic.md), [CSRF](docs/csrf.md), [Race Conditions](docs/race-conditions.md), [403 Testing](docs/403-testing.md) |
+| Injection and parsing | [SQL Injection](docs/sql-injection.md), [Command Injection](docs/command-injection.md), [Path Traversal](docs/path-traversal-file-inclusion.md), [XXE](docs/xxe.md), [SSRF](docs/ssrf.md), [Prototype Pollution](docs/prototype-pollution.md) |
+| Browser and transport | [XSS](docs/xss.md), [CSP](docs/csp.md), [CORS](docs/cors.md), [WebSockets](docs/websocket-security.md), [HTTP Request Smuggling](docs/http-request-smuggling.md), [Web Cache](docs/web-cache.md) |
+| APIs and integrations | [API Testing](docs/api-techniques.md), [GraphQL](docs/graphql.md), [Mobile API](docs/mobile-api-testing.md), [Webhooks](docs/webhooks-integrations.md), [File Upload](docs/file-upload.md) |
+| Exposure and infrastructure | [Exposed Files](docs/exposed-files.md), [Development Files](docs/exposed-development-files.md), [Subdomain Takeover](docs/subdomain-takeover.md), [DNS & Cloud](docs/dns-cloud-misconfiguration.md), [Supply Chain](docs/supply-chain-exposure.md), [Modern Web](docs/modern-web-techniques.md) |
+
 ## Technique Playbooks
 
 Practical checks for newer and easily missed attack surfaces:
@@ -139,6 +163,13 @@ Every topic in this repository follows that rhythm. You can use it on a small RE
 | [Finding report](templates/finding-report.md) | Turning verified behavior into a submission |
 | [Authorization matrix](templates/authorization-matrix.csv) | Comparing roles, tenants, objects, states, and actions |
 | [Development-files wordlist](wordlists/dev-files.txt) | Running a small evidence-led artifact check within program limits |
+| [API inventory](templates/api-endpoint-inventory.csv) | Mapping methods, objects, roles, and tenant binding |
+| [GraphQL inventory](templates/graphql-operation-inventory.csv) | Tracking operations, nested IDs, roles, and side effects |
+| [OAuth flow notes](templates/oauth-flow-notes.md) | Recording protocol bindings and token lifecycle |
+| [Race timeline](templates/race-condition-timeline.csv) | Comparing sequential and concurrent final state |
+| [Evidence redaction](templates/evidence-redaction-checklist.md) | Removing secrets and user data before reporting |
+| [Business state machine](templates/business-logic-state-machine.md) | Writing transitions and invariants |
+| [Secret triage](templates/secret-exposure-triage.md) | Classifying exposed values safely |
 | [Pull request checklist](.github/pull_request_template.md) | Adding or improving a handbook chapter |
 
 ## What You Will Not Find Here
@@ -160,6 +191,12 @@ Every topic in this repository follows that rhythm. You can use it on a small RE
 ## Keeping Techniques Current
 
 Security advice changes. Protocol guidance and platform behavior matter more than social-media payload trends. See [References & Further Study](docs/references.md) for maintained OWASP guidance, Web Security Academy material, and OAuth 2.0 Best Current Practice.
+
+## Project Status
+
+Current milestone: **v1.0.0**. Repository contains 39 handbook chapters, five local labs, ten templates, and automated Markdown, metadata, link, heading, wordlist, and secret checks.
+
+See [Changelog](CHANGELOG.md) and [Roadmap](ROADMAP.md).
 
 ## Contributing
 

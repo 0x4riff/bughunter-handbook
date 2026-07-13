@@ -1,4 +1,31 @@
+---
+title: "Testing 403 Responses"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # Testing 403 Responses
+
+## Table of Contents
+
+- [Investigate the Boundary](#investigate-the-boundary)
+- [What Makes It a Finding](#what-makes-it-a-finding)
+- [Frequent False Positives](#frequent-false-positives)
+- [Signal Versus Noise](#signal-versus-noise)
+- [Practical Tip](#practical-tip)
+- [Report Title Pattern](#report-title-pattern)
+- [Map the Denial Layer](#map-the-denial-layer)
+- [Evidence-Led Variations](#evidence-led-variations)
+- [Validate a Read Bypass](#validate-a-read-bypass)
+- [Validate a Write Bypass](#validate-a-write-bypass)
+- [Remediation](#remediation)
 
 A 403 is a refusal, not a challenge to make the status code disappear. The useful question is whether an unauthorized actor can reach protected data or trigger a protected action.
 
@@ -72,3 +99,9 @@ Use a harmless controlled change, then sign in as the owner and verify stored st
 ## Remediation
 
 Normalize the request once, then apply authentication and authorization to the normalized route. Keep edge and origin routing rules aligned. Test alternate methods, versions, downloads, and async paths in policy regression tests.
+
+---
+
+## Chapter Navigation
+
+[Previous: Prototype Pollution](prototype-pollution.md) · [Back to README](../README.md) · [Next: Exposed and Backup Files](exposed-files.md)

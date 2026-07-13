@@ -1,4 +1,34 @@
+---
+title: "Modern Web Techniques"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # Modern Web Techniques
+
+## Table of Contents
+
+- [Web Cache Deception and Cache Keys](#web-cache-deception-and-cache-keys)
+- [Webhooks and URL Fetchers](#webhooks-and-url-fetchers)
+- [File Upload Pipelines](#file-upload-pipelines)
+- [Client-Side Trust Boundaries](#client-side-trust-boundaries)
+- [AI-Enabled Features](#ai-enabled-features)
+- [Third-Party API Trust](#third-party-api-trust)
+- [Modern Surface Checklist](#modern-surface-checklist)
+- [Evidence Rule](#evidence-rule)
+- [Cache Investigation](#cache-investigation)
+- [SSRF and URL Fetchers](#ssrf-and-url-fetchers)
+- [File Uploads](#file-uploads)
+- [Browser Messaging](#browser-messaging)
+- [AI Features](#ai-features)
+- [Remediation](#remediation)
 
 Some useful bug classes sit between application code, proxies, caches, and browser features. They need architecture-aware testing, not generic payload spraying.
 
@@ -69,3 +99,9 @@ Map prompt sources, retrieval data, rendered output, tool permissions, confirmat
 ## Remediation
 
 Align cache and origin normalization, restrict URL fetch destinations and protocols, validate uploads by content and use, enforce browser origin checks, and keep AI tool authorization outside model decisions.
+
+---
+
+## Chapter Navigation
+
+[Previous: Software Supply-Chain Exposure](supply-chain-exposure.md) · [Back to README](../README.md) · [Next: References & Further Study](references.md)

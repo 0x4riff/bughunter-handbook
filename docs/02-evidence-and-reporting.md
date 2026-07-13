@@ -1,4 +1,29 @@
+---
+title: "Evidence and Reporting"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # Evidence and Reporting
+
+## Table of Contents
+
+- [Evidence Gets Stronger in Steps](#evidence-gets-stronger-in-steps)
+- [Evidence Worth Keeping](#evidence-worth-keeping)
+- [Write the Impact You Proved](#write-the-impact-you-proved)
+- [Keep the Report Easy to Review](#keep-the-report-easy-to-review)
+- [Observation, Finding, and Impact](#observation-finding-and-impact)
+- [Build a Reproduction Pack](#build-a-reproduction-pack)
+- [Redaction Rules](#redaction-rules)
+- [Severity Questions](#severity-questions)
+- [Report Quality Checklist](#report-quality-checklist)
 
 A report is not a diary of everything you tried. It is a short argument supported by enough evidence for someone else to reach the same conclusion.
 
@@ -93,3 +118,9 @@ Use CVSS only when the program asks for it. Business severity and CVSS are relat
 - [ ] False positives were checked.
 - [ ] Fix direction addresses root control.
 - [ ] No private data or full secret appears.
+
+---
+
+## Chapter Navigation
+
+[Previous: Testing Workflow](01-testing-workflow.md) · [Back to README](../README.md) · [Next: Field Tips & Tricks](03-field-tips.md)

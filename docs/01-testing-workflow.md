@@ -1,4 +1,34 @@
+---
+title: "Testing Workflow"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # Testing Workflow
+
+## Table of Contents
+
+- [1. Write the Rule First](#1-write-the-rule-first)
+- [2. Map the Feature](#2-map-the-feature)
+- [3. Capture Clean Baselines](#3-capture-clean-baselines)
+- [4. Change One Thing](#4-change-one-thing)
+- [5. Check What Happened](#5-check-what-happened)
+- [6. Try to Disprove Yourself](#6-try-to-disprove-yourself)
+- [7. Stop at the Smallest Proof](#7-stop-at-the-smallest-proof)
+- [8. Write for the Reviewer](#8-write-for-the-reviewer)
+- [Build a Small Attack-Surface Map](#build-a-small-attack-surface-map)
+- [Baseline Pack](#baseline-pack)
+- [The One-Variable Table](#the-one-variable-table)
+- [Triage Outcomes](#triage-outcomes)
+- [Retest for Reproducibility](#retest-for-reproducibility)
+- [Workflow Notes Template](#workflow-notes-template)
 
 Random probing sometimes gets lucky. A repeatable workflow gets better as you learn the application.
 
@@ -104,3 +134,9 @@ Authoritative final state:
 Alternative explanation checked:
 Smallest repeatable proof:
 ```
+
+---
+
+## Chapter Navigation
+
+[Previous: Rules of Engagement](00-rules-of-engagement.md) · [Back to README](../README.md) · [Next: Evidence and Reporting](02-evidence-and-reporting.md)

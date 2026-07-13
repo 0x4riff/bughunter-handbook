@@ -1,0 +1,2 @@
+attempt,request_id,operation,start_ms,end_ms,response,final_state,cleanup
+1,REQ-1,redeem,0,120,success,used_once,complete

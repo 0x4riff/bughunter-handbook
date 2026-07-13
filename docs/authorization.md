@@ -1,4 +1,34 @@
+---
+title: "Authorization and IDOR"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # Authorization and IDOR
+
+## Table of Contents
+
+- [Think in Four Parts](#think-in-four-parts)
+- [A Reliable Two-Account Test](#a-reliable-two-account-test)
+- [Boundaries Worth Mapping](#boundaries-worth-mapping)
+- [Common Dead Ends](#common-dead-ends)
+- [Fix Direction](#fix-direction)
+- [Quick Technique Matrix](#quick-technique-matrix)
+- [Request Review Tips](#request-review-tips)
+- [Report Title Pattern](#report-title-pattern)
+- [Horizontal, Vertical, and Contextual Checks](#horizontal-vertical-and-contextual-checks)
+- [Nested Object Authorization](#nested-object-authorization)
+- [Indirect and Opaque IDs](#indirect-and-opaque-ids)
+- [Async Authorization](#async-authorization)
+- [Delete and Recovery Paths](#delete-and-recovery-paths)
+- [Remediation Tests](#remediation-tests)
 
 IDOR is not an ID format problem. It is a policy problem: the server found an object, but failed to confirm that the current actor could perform that action on it.
 
@@ -89,3 +119,9 @@ Test archive, restore, delete, undelete, transfer, duplicate, share, and revoke 
 ## Remediation Tests
 
 After a fix, regression cases should cover user, role, tenant, object state, nested object, alternate channel, and asynchronous execution. Deny-by-default behavior should return no protected fields or side effects.
+
+---
+
+## Chapter Navigation
+
+[Previous: Cross-Site Request Forgery](csrf.md) · [Back to README](../README.md) · [Next: Multi-Tenant SaaS Testing](multi-tenant-saas.md)

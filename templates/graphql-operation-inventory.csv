@@ -1,0 +1,2 @@
+operation,type,root_field,object_ids,required_role,tenant_bound,side_effect,owner_verification
+GetObject,query,object,id,member,yes,none,yes

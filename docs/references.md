@@ -1,4 +1,26 @@
+---
+title: "References & Further Study"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # References & Further Study
+
+## Table of Contents
+
+- [Standards and Guides](#standards-and-guides)
+- [How to Use References](#how-to-use-references)
+- [Coverage Map](#coverage-map)
+- [Additional Primary Resources](#additional-primary-resources)
+- [Source Discipline](#source-discipline)
+- [Practice Safely](#practice-safely)
 
 This handbook uses original wording and focuses on practical field use. These primary resources are useful for deeper study and keeping techniques current.
 
@@ -41,3 +63,9 @@ Prefer protocol specifications and maintained project documentation over copied 
 ## Practice Safely
 
 Use labs for destructive, high-volume, parser-stress, cache-poisoning, request-smuggling, and server-persistence techniques before considering any production test. A lab technique does not override a program's rules.
+
+---
+
+## Chapter Navigation
+
+[Previous: Modern Web Techniques](modern-web-techniques.md) · [Back to README](../README.md) · [README](../README.md)

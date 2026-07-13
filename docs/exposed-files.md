@@ -1,4 +1,32 @@
+---
+title: "Exposed and Backup Files"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # Exposed and Backup Files
+
+## Table of Contents
+
+- [Start Close to the Application](#start-close-to-the-application)
+- [Classify Before You Report](#classify-before-you-report)
+- [Fix Direction](#fix-direction)
+- [Deep-Dive Chapter](#deep-dive-chapter)
+- [Fast Decision Tree](#fast-decision-tree)
+- [Artifact Families](#artifact-families)
+- [Validate Content Type and Signature](#validate-content-type-and-signature)
+- [Backup Naming Logic](#backup-naming-logic)
+- [Archives and Database Dumps](#archives-and-database-dumps)
+- [Source Maps](#source-maps)
+- [Logs and Debug Output](#logs-and-debug-output)
+- [Remediation](#remediation)
 
 A forgotten file matters when it reveals something that was not meant to be public. The filename alone is not the finding.
 
@@ -71,3 +99,9 @@ Check for tokens, session IDs, personal data, internal paths, stack traces, and 
 ## Remediation
 
 Remove artifacts, rotate exposed secrets, review access logs, isolate generated exports, disable debug publication, and add deployment allowlists plus CI artifact scanning.
+
+---
+
+## Chapter Navigation
+
+[Previous: Testing 403 Responses](403-testing.md) · [Back to README](../README.md) · [Next: Exposed Development Files](exposed-development-files.md)

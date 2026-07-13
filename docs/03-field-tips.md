@@ -1,4 +1,36 @@
+---
+title: "Field Tips & Tricks"
+difficulty: intermediate
+estimated_time: "30 minutes"
+prerequisites:
+  - HTTP basics
+  - authorized test environment
+last_reviewed: "2026-07"
+standards:
+  - OWASP WSTG
+  - MITRE CWE
+---
+
 # Field Tips & Tricks
+
+## Table of Contents
+
+- [Keep a “Why?” Column](#keep-a-why-column)
+- [Compare Roles, Not Only Users](#compare-roles-not-only-users)
+- [Let Official Clients Teach You](#let-official-clients-teach-you)
+- [Save One Known-Good Request](#save-one-known-good-request)
+- [Read Responses Side by Side](#read-responses-side-by-side)
+- [Test Transitions, Not Just Pages](#test-transitions-not-just-pages)
+- [Revisit Features Through Another Channel](#revisit-features-through-another-channel)
+- [Use Unique Markers](#use-unique-markers)
+- [Keep a Dead-End Log](#keep-a-dead-end-log)
+- [Stop When Proof Is Complete](#stop-when-proof-is-complete)
+- [Proxy Organization](#proxy-organization)
+- [Endpoint Mining Without Blind Guessing](#endpoint-mining-without-blind-guessing)
+- [Difference Testing](#difference-testing)
+- [Retest After State Changes](#retest-after-state-changes)
+- [Time Management](#time-management)
+- [Reporting Habit](#reporting-habit)
 
 Small habits often find more bugs than large wordlists. These are the habits I keep close while testing.
 
@@ -87,3 +119,9 @@ A disciplined stop queue is as valuable as a payload list.
 ## Reporting Habit
 
 Draft the title and impact sentence before deeper testing. If you cannot name the broken boundary, gather more context rather than more payloads.
+
+---
+
+## Chapter Navigation
+
+[Previous: Evidence and Reporting](02-evidence-and-reporting.md) · [Back to README](../README.md) · [Next: Authentication & Session Management](authentication-session-management.md)
