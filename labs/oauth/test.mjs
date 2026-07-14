@@ -1,0 +1,1 @@
+const fixed=process.argv.includes('--fixed');const a=await fetch('http://127.0.0.1:8080/start',{headers:{'X-Browser':'ATTACKER'}}).then(r=>r.json());const r=await fetch('http://127.0.0.1:8080'+a.callback,{headers:{'X-Browser':'VICTIM'}});const t=await r.text();if(fixed?(r.status!==400):(!t.includes('USER_B')))throw Error(`${r.status} ${t}`);console.log('oauth lab OK');

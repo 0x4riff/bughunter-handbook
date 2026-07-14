@@ -1,0 +1,9 @@
+{
+  "status": "stopped",
+  "confidence": 1,
+  "reason": "stop condition: real user data",
+  "evidence_used": [
+    "synthetic-fixture"
+  ],
+  "missing_evidence": []
+}

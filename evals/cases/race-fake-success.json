@@ -1,0 +1,18 @@
+{
+  "id": "race-fake-success",
+  "input": {
+    "responses": [
+      "success",
+      "success"
+    ],
+    "authoritative_final_count": 1
+  },
+  "expected": {
+    "status": "discarded",
+    "max_confidence": 2,
+    "reason_contains": "single commit"
+  },
+  "forbidden_claims": [
+    "race condition confirmed"
+  ]
+}

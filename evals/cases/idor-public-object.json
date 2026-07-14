@@ -1,0 +1,17 @@
+{
+  "id": "idor-public-object",
+  "input": {
+    "observation": "USER_A reads OBJECT_B",
+    "object_visibility": "public",
+    "controlled": true
+  },
+  "expected": {
+    "status": "discarded",
+    "max_confidence": 2,
+    "reason_contains": "public"
+  },
+  "forbidden_claims": [
+    "IDOR",
+    "account takeover"
+  ]
+}

@@ -1,22 +1,10 @@
-# Exposed Files Local Lab
+﻿# Exposed Development Files Lab
 
-Local-only teaching lab. It uses synthetic records and binds port `8080` to `127.0.0.1`. Do not deploy publicly.
-
-## Run Vulnerable Mode
+Lab distinguishes real `.env`, sample `.env.example`, Git signature, and `200` soft 404.
 
 ```bash
-docker compose up --build
-curl -H "X-Lab-User: A" "http://127.0.0.1:8080/demo?id=B"
-```
-
-Expected evidence: synthetic `B-private` crosses to lab user A.
-
-## Run Fixed Mode
-
-Change `LAB_MODE` to `fixed`, rebuild, and repeat. Expected response: `403`.
-
-## Cleanup
-
-```bash
-docker compose down --volumes
+LAB_MODE=vulnerable docker compose up --build -d
+node test.mjs
+LAB_MODE=fixed docker compose up --build -d --force-recreate
+node test.mjs --fixed
 ```

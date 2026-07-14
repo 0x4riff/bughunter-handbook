@@ -1,0 +1,83 @@
+{
+  "version": "2.0.0",
+  "mutations": [
+    {
+      "id": "actor.swap-controlled",
+      "dimension": "actor",
+      "requires": [
+        "two_controlled_accounts"
+      ],
+      "changes": [
+        "authentication_context"
+      ],
+      "preserves": [
+        "method",
+        "object",
+        "body"
+      ],
+      "purpose": "isolate actor authorization"
+    },
+    {
+      "id": "object.swap-controlled",
+      "dimension": "object",
+      "requires": [
+        "two_controlled_objects"
+      ],
+      "changes": [
+        "object_reference"
+      ],
+      "preserves": [
+        "actor",
+        "method",
+        "body"
+      ],
+      "purpose": "isolate object authorization"
+    },
+    {
+      "id": "tenant.swap-controlled",
+      "dimension": "tenant",
+      "requires": [
+        "two_controlled_tenants"
+      ],
+      "changes": [
+        "tenant_reference"
+      ],
+      "preserves": [
+        "actor_role",
+        "action"
+      ],
+      "purpose": "isolate tenant binding"
+    },
+    {
+      "id": "state.after-revoke",
+      "dimension": "state",
+      "requires": [
+        "controlled_session"
+      ],
+      "changes": [
+        "authorization_state"
+      ],
+      "preserves": [
+        "request_shape"
+      ],
+      "purpose": "test stale privilege"
+    },
+    {
+      "id": "time.parallel-two",
+      "dimension": "time",
+      "requires": [
+        "local_lab_or_explicit_concurrency_permission"
+      ],
+      "changes": [
+        "request_timing"
+      ],
+      "preserves": [
+        "actor",
+        "object",
+        "action"
+      ],
+      "purpose": "test atomic invariant",
+      "max_parallel": 2
+    }
+  ]
+}

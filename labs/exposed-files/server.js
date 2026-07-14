@@ -1,9 +1,1 @@
-const http=require('http');
-const mode=process.env.LAB_MODE||'vulnerable';
-const records={A:{owner:'A',note:'A-private'},B:{owner:'B',note:'B-private'}};
-http.createServer((req,res)=>{
- const user=req.headers['x-lab-user']||'A'; const id=new URL(req.url,'http://localhost').searchParams.get('id')||'A';
- if(req.url.startsWith('/health')) return res.end('ok');
- if(req.url.startsWith('/demo')){const item=records[id]; if(mode==='fixed'&&item&&item.owner!==user){res.writeHead(403);return res.end(JSON.stringify({error:'forbidden'}));} res.setHeader('content-type','application/json');return res.end(JSON.stringify({lab:'exposed-files',mode,item}));}
- res.writeHead(404);res.end('not found');
-}).listen(8080,'0.0.0.0');
+const http=require('http');const mode=process.env.LAB_MODE||'vulnerable';const files={'/.env':'LAB_API_KEY=synthetic-secret-7f3a\n','/.env.example':'LAB_API_KEY=CHANGEME\n','/.git/HEAD':'ref: refs/heads/main\n'};http.createServer((req,res)=>{if(mode==='vulnerable'&&files[req.url]){res.setHeader('content-type','text/plain');return res.end(files[req.url])}if(req.url==='/health')return res.end('ok');res.statusCode=200;res.setHeader('content-type','text/html');res.end('<h1>Not Found</h1>')}).listen(8080);

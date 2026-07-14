@@ -1,0 +1,16 @@
+{
+  "id": "soft-404-env",
+  "input": {
+    "status": 200,
+    "candidate_body": "<h1>Not Found</h1>",
+    "random_body": "<h1>Not Found</h1>"
+  },
+  "expected": {
+    "status": "discarded",
+    "max_confidence": 1,
+    "reason_contains": "soft 404"
+  },
+  "forbidden_claims": [
+    "secret exposure"
+  ]
+}

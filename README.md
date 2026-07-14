@@ -7,6 +7,8 @@
 [![Markdown checks](https://github.com/0x4riff/bughunter-handbook/actions/workflows/markdown.yml/badge.svg)](https://github.com/0x4riff/bughunter-handbook/actions/workflows/markdown.yml)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/license-CC%20BY--SA%204.0-2b6cb0.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/0x4riff/bughunter-handbook?label=release)](https://github.com/0x4riff/bughunter-handbook/releases)
+[![Agent Ready](https://img.shields.io/badge/agent--ready-v2-2563eb.svg)](#agent-ready-methodology)
+[![Playbooks](https://img.shields.io/badge/playbooks-10-7c3aed.svg)](playbooks/index.json)
 [![Topics](https://img.shields.io/badge/topics-39-111827.svg)](#handbook-map)
 [![Labs](https://img.shields.io/badge/local%20labs-5-0f766e.svg)](labs/)
 [![Made for bug hunters](https://img.shields.io/badge/made%20for-bug%20hunters-7c3aed.svg)](#who-this-is-for)
@@ -95,6 +97,38 @@ Use targeted paths, baseline calibration, secret triage, Git evidence levels, an
 </td>
 </tr>
 </table>
+
+## Agent-Ready Methodology
+
+Version 2 turns handbook into operational contract for AI agents and human researchers:
+
+```text
+scope gate
+  -> surface model
+  -> falsifiable hypothesis
+  -> controlled baseline
+  -> one declared mutation
+  -> authoritative verification
+  -> false-positive checks
+  -> confidence score
+  -> evidence-linked report or discard
+```
+
+| Machine layer | Purpose |
+| :--- | :--- |
+| [Agent contract](AGENTS.md) | Mandatory order, safety rules, and entry points |
+| [Methodology](methodology/README.md) | Universal workflow shared by every technique |
+| [Playbooks](playbooks/index.json) | Ten machine-readable topic workflows |
+| [State machine](agent/state-machine.json) | Legal transitions and global stop conditions |
+| [Confidence model](agent/confidence-model.json) | Evidence levels and forbidden inference |
+| [Evidence graph](evidence/README.md) | Claim-to-evidence relationship |
+| [Schemas](schemas/) | Scope, playbook, evidence, graph, and finding contracts |
+| [Ontology](ontology/security-ontology.json) | Actors, objects, actions, states, channels, boundaries |
+| [Mutations](mutations/catalog.json) | One-variable controlled transformations |
+| [Evaluations](evals/) | Positive, negative, ambiguous, and safety test cases |
+| [LLM index](llms.txt) | Compact discovery entry point for models |
+
+Agents must not call a lead a vulnerability before authoritative effect and alternatives are checked. Findings require confidence level 4 or 5.
 
 ## Learning Paths
 
@@ -194,7 +228,7 @@ Security advice changes. Protocol guidance and platform behavior matter more tha
 
 ## Project Status
 
-Current milestone: **v1.0.0**. Repository contains 39 handbook chapters, five local labs, ten templates, and automated Markdown, metadata, link, heading, wordlist, and secret checks.
+Current milestone: **v2.0.0**. Repository contains 39 human-readable chapters, ten machine-readable playbooks, five topic-specific local labs, agent state/confidence/evidence models, evaluation fixtures, ten templates, and automated content plus agent-contract checks.
 
 See [Changelog](CHANGELOG.md) and [Roadmap](ROADMAP.md).
 

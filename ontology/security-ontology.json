@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "actors": [
+    "anonymous",
+    "user",
+    "tenant_member",
+    "tenant_admin",
+    "support_agent",
+    "service_account",
+    "background_worker"
+  ],
+  "objects": [
+    "account",
+    "session",
+    "document",
+    "message",
+    "payment",
+    "secret",
+    "job",
+    "integration",
+    "tenant",
+    "file"
+  ],
+  "actions": [
+    "create",
+    "read",
+    "update",
+    "delete",
+    "approve",
+    "invite",
+    "export",
+    "share",
+    "revoke",
+    "restore",
+    "execute",
+    "link"
+  ],
+  "states": [
+    "draft",
+    "pending",
+    "active",
+    "revoked",
+    "expired",
+    "archived",
+    "deleted"
+  ],
+  "channels": [
+    "web",
+    "rest",
+    "graphql",
+    "websocket",
+    "mobile",
+    "webhook",
+    "background_job",
+    "export"
+  ],
+  "boundaries": [
+    "authentication",
+    "user",
+    "role",
+    "tenant",
+    "origin",
+    "network",
+    "parser",
+    "cache",
+    "workflow",
+    "time"
+  ]
+}

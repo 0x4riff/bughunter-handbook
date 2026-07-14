@@ -13,4 +13,5 @@ for(const f of md.filter(f=>f.includes(`${path.sep}docs${path.sep}`))){
 }
 for(const f of md){const s=fs.readFileSync(f,'utf8');for(const m of s.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)){const u=m[1].split('#')[0];if(!u||/^(https?:|mailto:)/.test(u))continue;if(!fs.existsSync(path.resolve(path.dirname(f),u)))errors.push(`${f}: broken ${u}`)}}
 for(const f of files.filter(f=>/wordlists.+\.txt$/.test(f))){const rows=fs.readFileSync(f,'utf8').split(/\r?\n/).filter(Boolean);if(new Set(rows).size!==rows.length)errors.push(`${f}: duplicate entries`)}
+for(const f of files.filter(f=>f.endsWith('.json'))){try{JSON.parse(fs.readFileSync(f,'utf8'))}catch(e){errors.push(`${f}: invalid JSON ${e.message}`)}}
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}console.log(`Quality OK: ${md.length} Markdown files, ${files.length} total files`);

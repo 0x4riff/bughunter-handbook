@@ -1,0 +1,9 @@
+{
+  "status": "discarded",
+  "confidence": 1,
+  "reason": "candidate matches soft 404 baseline",
+  "evidence_used": [
+    "synthetic-fixture"
+  ],
+  "missing_evidence": []
+}

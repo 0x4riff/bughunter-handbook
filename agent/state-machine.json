@@ -1,0 +1,121 @@
+{
+  "version": "2.0.0",
+  "initial": "UNSCOPED",
+  "terminal": [
+    "REPORTED",
+    "DISCARDED",
+    "OUT_OF_SCOPE",
+    "STOPPED_FOR_SAFETY"
+  ],
+  "states": [
+    "UNSCOPED",
+    "SCOPE_VERIFIED",
+    "SURFACE_MAPPED",
+    "HYPOTHESIS_CREATED",
+    "BASELINE_READY",
+    "TEST_EXECUTED",
+    "EFFECT_VERIFIED",
+    "ALTERNATIVES_CHECKED",
+    "CONFIRMED",
+    "REPORTED",
+    "INCONCLUSIVE",
+    "NEEDS_SAFE_SETUP",
+    "STOPPED_FOR_SAFETY",
+    "OUT_OF_SCOPE",
+    "DISCARDED"
+  ],
+  "transitions": [
+    {
+      "from": "UNSCOPED",
+      "to": "SCOPE_VERIFIED",
+      "requires": [
+        "scope_record_valid",
+        "method_allowed"
+      ]
+    },
+    {
+      "from": "UNSCOPED",
+      "to": "OUT_OF_SCOPE",
+      "when": [
+        "asset_or_method_unauthorized"
+      ]
+    },
+    {
+      "from": "SCOPE_VERIFIED",
+      "to": "SURFACE_MAPPED",
+      "requires": [
+        "observed_surface_recorded"
+      ]
+    },
+    {
+      "from": "SURFACE_MAPPED",
+      "to": "HYPOTHESIS_CREATED",
+      "requires": [
+        "falsifiable_invariant",
+        "playbook_selected"
+      ]
+    },
+    {
+      "from": "HYPOTHESIS_CREATED",
+      "to": "BASELINE_READY",
+      "requires": [
+        "allowed_baseline",
+        "denied_baseline",
+        "controlled_ownership"
+      ]
+    },
+    {
+      "from": "BASELINE_READY",
+      "to": "TEST_EXECUTED",
+      "requires": [
+        "one_declared_mutation",
+        "request_budget_ok"
+      ]
+    },
+    {
+      "from": "TEST_EXECUTED",
+      "to": "EFFECT_VERIFIED",
+      "requires": [
+        "authoritative_effect_evidence"
+      ]
+    },
+    {
+      "from": "TEST_EXECUTED",
+      "to": "INCONCLUSIVE",
+      "when": [
+        "response_only_signal"
+      ]
+    },
+    {
+      "from": "EFFECT_VERIFIED",
+      "to": "ALTERNATIVES_CHECKED",
+      "requires": [
+        "false_positive_checks_complete"
+      ]
+    },
+    {
+      "from": "ALTERNATIVES_CHECKED",
+      "to": "CONFIRMED",
+      "requires": [
+        "confidence_level_gte_4",
+        "evidence_graph_valid"
+      ]
+    },
+    {
+      "from": "CONFIRMED",
+      "to": "REPORTED",
+      "requires": [
+        "report_redacted",
+        "limits_declared",
+        "cleanup_recorded"
+      ]
+    }
+  ],
+  "global_stop": [
+    "real_user_data",
+    "target_instability",
+    "unexpected_financial_effect",
+    "active_secret",
+    "out_of_scope_redirect"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "status": "discarded",
+  "confidence": 2,
+  "reason": "authoritative state shows single commit",
+  "evidence_used": [
+    "synthetic-fixture"
+  ],
+  "missing_evidence": []
+}

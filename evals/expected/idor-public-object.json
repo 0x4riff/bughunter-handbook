@@ -1,0 +1,9 @@
+{
+  "status": "discarded",
+  "confidence": 2,
+  "reason": "public object is intentionally readable",
+  "evidence_used": [
+    "synthetic-fixture"
+  ],
+  "missing_evidence": []
+}

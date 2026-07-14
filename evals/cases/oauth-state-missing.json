@@ -1,0 +1,16 @@
+{
+  "id": "oauth-state-missing",
+  "input": {
+    "callback_accepts_cross_browser_state": true,
+    "controlled_profiles": true,
+    "session_created_as": "ATTACKER_CONTROLLED"
+  },
+  "expected": {
+    "status": "confirmed",
+    "min_confidence": 4,
+    "reason_contains": "session binding"
+  },
+  "forbidden_claims": [
+    "all users"
+  ]
+}

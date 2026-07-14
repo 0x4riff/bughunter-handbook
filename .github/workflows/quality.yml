@@ -15,8 +15,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - name: Validate metadata, navigation, links, headings, and wordlists
+      - name: Validate metadata, navigation, links, headings, wordlists, and JSON
         run: node scripts/quality-check.mjs
+      - name: Validate agent contracts, playbooks, schemas, labs, and evals
+        run: node scripts/validate-agent-assets.mjs
+      - name: Run deterministic agent evaluation suite
+        run: node scripts/run-evals.mjs
+      - name: Syntax-check topic-specific labs
+        shell: bash
+        run: |
+          for file in labs/*/server.js labs/*/test.mjs; do node --check "$file"; done
+      - name: Run vulnerable and fixed lab regression tests
+        run: node scripts/test-labs.mjs
       - name: Scan committed content for secrets
         uses: gitleaks/gitleaks-action@v2
         env:

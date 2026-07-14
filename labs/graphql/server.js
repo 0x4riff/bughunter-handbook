@@ -1,9 +1,1 @@
-const http=require('http');
-const mode=process.env.LAB_MODE||'vulnerable';
-const records={A:{owner:'A',note:'A-private'},B:{owner:'B',note:'B-private'}};
-http.createServer((req,res)=>{
- const user=req.headers['x-lab-user']||'A'; const id=new URL(req.url,'http://localhost').searchParams.get('id')||'A';
- if(req.url.startsWith('/health')) return res.end('ok');
- if(req.url.startsWith('/demo')){const item=records[id]; if(mode==='fixed'&&item&&item.owner!==user){res.writeHead(403);return res.end(JSON.stringify({error:'forbidden'}));} res.setHeader('content-type','application/json');return res.end(JSON.stringify({lab:'graphql',mode,item}));}
- res.writeHead(404);res.end('not found');
-}).listen(8080,'0.0.0.0');
+const http=require('http');const mode=process.env.LAB_MODE||'vulnerable';const projects={A:{owner:'USER_A',secret:'A-KEY'},B:{owner:'USER_B',secret:'B-KEY'}};http.createServer((req,res)=>{if(req.method!=='POST'||req.url!=='/graphql'){res.writeHead(404);return res.end()}let b='';req.on('data',c=>b+=c);req.on('end',()=>{const x=JSON.parse(b),id=x.variables?.id||'A',actor=req.headers['x-lab-user']||'USER_A',p=projects[id];res.setHeader('content-type','application/json');if(mode==='fixed'&&p.owner!==actor)return res.end(JSON.stringify({errors:[{message:'forbidden'}],data:{project:null}}));res.end(JSON.stringify({data:{project:{id,owner:p.owner,integration:{secret:p.secret}}}}));});}).listen(8080);

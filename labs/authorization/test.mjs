@@ -1,0 +1,1 @@
+const fixed=process.argv.includes('--fixed');const r=await fetch('http://127.0.0.1:8080/documents/B',{headers:{'X-Lab-User':'USER_A'}});const t=await r.text();if(fixed?(r.status!==403):(!t.includes('B-private')))throw Error(`unexpected ${r.status} ${t}`);console.log('authorization lab OK');

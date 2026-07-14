@@ -4,4 +4,4 @@ services:
     ports:
       - "127.0.0.1:8080:8080"
     environment:
-      LAB_MODE: "vulnerable"
+      LAB_MODE: "${LAB_MODE:-vulnerable}"

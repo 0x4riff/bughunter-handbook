@@ -1,0 +1,65 @@
+{
+  "id": "graphql.nested-authorization",
+  "version": "2.0.0",
+  "title": "GraphQL Nested Authorization",
+  "triggers": [
+    "GraphQL endpoint observed",
+    "nested objects returned"
+  ],
+  "scope_requirements": [
+    "asset_is_in_scope",
+    "two_controlled_accounts"
+  ],
+  "risk": {
+    "production_state_change": "none_or_controlled",
+    "max_requests_per_case": 5
+  },
+  "security_invariant": "Every nested resolver must enforce object and tenant policy",
+  "workflow": [
+    {
+      "id": "capture_baseline",
+      "action": "capture known-good and known-denied controlled baseline",
+      "expect": "ownership and stable markers recorded"
+    },
+    {
+      "id": "apply_one_mutation",
+      "action": "apply declared mutation to controlled input",
+      "expect": "only one security dimension changes"
+    },
+    {
+      "id": "verify_effect",
+      "action": "verify authoritative state or protected content",
+      "expect": "effect is controlled and repeatable"
+    },
+    {
+      "id": "check_alternatives",
+      "action": "evaluate false-positive list",
+      "expect": "plausible alternatives resolved"
+    }
+  ],
+  "confirmation": {
+    "all": [
+      "controlled_ownership",
+      "repeatable_behavior",
+      "authoritative_effect",
+      "alternatives_checked",
+      "redacted_evidence"
+    ]
+  },
+  "false_positive_checks": [
+    "public_child",
+    "parent_grants_access",
+    "DataLoader_cache_same_actor"
+  ],
+  "stop_conditions": [
+    "real_user_data",
+    "target_instability",
+    "unexpected_financial_effect",
+    "active_secret",
+    "out_of_scope_redirect"
+  ],
+  "output": {
+    "minimum_confidence": 4,
+    "finding_title": "{{actor}} can {{action}} {{object}} across {{boundary}}"
+  }
+}

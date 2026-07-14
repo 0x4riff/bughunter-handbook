@@ -1,0 +1,29 @@
+# Bughunter Handbook v2 Agent Context
+
+Purpose: evidence-led, authorized bug-hunting methodology for humans and AI agents.
+
+Mandatory sequence:
+1. Verify written scope and allowed method.
+2. Map observed actors, objects, actions, states, channels, and boundaries.
+3. Write one falsifiable security invariant.
+4. Select one matching playbook from `playbooks/index.json`.
+5. Capture allowed and denied controlled baselines.
+6. Apply one declared mutation.
+7. Verify authoritative effect, not response difference alone.
+8. Check playbook false positives.
+9. Score confidence using `agent/confidence-model.json`.
+10. Report only at level 4 or 5 with evidence graph and declared limits.
+
+Global stops: real-user data, active secret, target instability, unexpected financial effect, out-of-scope redirect.
+
+Machine files:
+- `agent-index.json`
+- `agent/state-machine.json`
+- `agent/confidence-model.json`
+- `ontology/security-ontology.json`
+- `mutations/catalog.json`
+- `playbooks/index.json`
+- `schemas/*.schema.json`
+- `evals/cases/*.json`
+
+A signal is not a finding. Status, length, timing, reflection, and version are leads until controlled authoritative evidence proves a boundary failure.

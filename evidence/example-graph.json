@@ -1,0 +1,47 @@
+{
+  "claim_id": "CLAIM-DEMO-1",
+  "nodes": [
+    {
+      "id": "SCOPE-1",
+      "kind": "scope"
+    },
+    {
+      "id": "OWN-1",
+      "kind": "ownership"
+    },
+    {
+      "id": "HTTP-1",
+      "kind": "http_exchange"
+    },
+    {
+      "id": "STATE-1",
+      "kind": "final_state"
+    },
+    {
+      "id": "CLAIM-DEMO-1",
+      "kind": "claim"
+    }
+  ],
+  "edges": [
+    {
+      "from": "SCOPE-1",
+      "to": "CLAIM-DEMO-1",
+      "relation": "authorizes"
+    },
+    {
+      "from": "OWN-1",
+      "to": "CLAIM-DEMO-1",
+      "relation": "controls"
+    },
+    {
+      "from": "HTTP-1",
+      "to": "CLAIM-DEMO-1",
+      "relation": "supports"
+    },
+    {
+      "from": "STATE-1",
+      "to": "CLAIM-DEMO-1",
+      "relation": "confirms"
+    }
+  ]
+}

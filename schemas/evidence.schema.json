@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "controlled",
+    "redacted",
+    "source",
+    "sha256"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "scope",
+        "ownership",
+        "http_exchange",
+        "final_state",
+        "false_positive_check",
+        "cleanup"
+      ]
+    },
+    "controlled": {
+      "type": "boolean"
+    },
+    "redacted": {
+      "type": "boolean"
+    },
+    "source": {
+      "type": "string"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

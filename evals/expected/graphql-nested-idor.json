@@ -1,0 +1,9 @@
+{
+  "status": "confirmed",
+  "confidence": 4,
+  "reason": "nested authorization boundary failed",
+  "evidence_used": [
+    "synthetic-fixture"
+  ],
+  "missing_evidence": []
+}

@@ -1,9 +1,1 @@
-const http=require('http');
-const mode=process.env.LAB_MODE||'vulnerable';
-const records={A:{owner:'A',note:'A-private'},B:{owner:'B',note:'B-private'}};
-http.createServer((req,res)=>{
- const user=req.headers['x-lab-user']||'A'; const id=new URL(req.url,'http://localhost').searchParams.get('id')||'A';
- if(req.url.startsWith('/health')) return res.end('ok');
- if(req.url.startsWith('/demo')){const item=records[id]; if(mode==='fixed'&&item&&item.owner!==user){res.writeHead(403);return res.end(JSON.stringify({error:'forbidden'}));} res.setHeader('content-type','application/json');return res.end(JSON.stringify({lab:'race-condition',mode,item}));}
- res.writeHead(404);res.end('not found');
-}).listen(8080,'0.0.0.0');
+const http=require('http');const mode=process.env.LAB_MODE||'vulnerable';let used=false,credits=0,locked=false;async function redeem(res){if(mode==='fixed'){if(locked||used){res.writeHead(409);return res.end('already_used')}locked=true;used=true;credits++;locked=false;return res.end(JSON.stringify({credits}))}if(used){res.writeHead(409);return res.end('already_used')}await new Promise(r=>setTimeout(r,80));used=true;credits++;res.end(JSON.stringify({credits}))}http.createServer((req,res)=>{if(req.url==='/reset'){used=false;credits=0;return res.end('ok')}if(req.url==='/redeem'&&req.method==='POST')return redeem(res);if(req.url==='/state'){res.setHeader('content-type','application/json');return res.end(JSON.stringify({used,credits}))}res.writeHead(404);res.end()}).listen(8080);

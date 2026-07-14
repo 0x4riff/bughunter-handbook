@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "required_output": [
+    "status",
+    "confidence",
+    "reason",
+    "evidence_used",
+    "missing_evidence"
+  ],
+  "rules": [
+    "never exceed expected confidence bounds",
+    "never emit forbidden claims",
+    "stop on safety case",
+    "confirmed requires authoritative evidence"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "version": "2.0.0",
+  "levels": [
+    {
+      "level": 0,
+      "name": "observation",
+      "meaning": "Raw behavior only",
+      "reportable": false
+    },
+    {
+      "level": 1,
+      "name": "signal",
+      "meaning": "Stable difference",
+      "reportable": false
+    },
+    {
+      "level": 2,
+      "name": "plausible_hypothesis",
+      "meaning": "Security rule and path identified",
+      "reportable": false
+    },
+    {
+      "level": 3,
+      "name": "controlled_reproduction",
+      "meaning": "Behavior repeats with controlled assets",
+      "reportable": false
+    },
+    {
+      "level": 4,
+      "name": "boundary_confirmed",
+      "meaning": "Security boundary failure and authoritative effect proven",
+      "reportable": true
+    },
+    {
+      "level": 5,
+      "name": "impact_confirmed",
+      "meaning": "Impact safely established within allowed limits",
+      "reportable": true
+    }
+  ],
+  "minimum_finding_level": 4,
+  "required_for_level_4": [
+    "controlled_ownership",
+    "repeatable_behavior",
+    "authoritative_effect",
+    "alternative_explanations_checked",
+    "redacted_evidence"
+  ],
+  "forbidden_inference": [
+    "status_code_to_bypass",
+    "timing_to_exfiltration",
+    "version_to_exploitability",
+    "reflection_to_execution",
+    "one_object_to_all_users"
+  ]
+}

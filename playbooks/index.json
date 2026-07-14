@@ -1,0 +1,84 @@
+{
+  "version": "2.0.0",
+  "playbooks": [
+    {
+      "id": "authorization.object-level",
+      "file": "authorization-object-level.json",
+      "triggers": [
+        "endpoint accepts object reference",
+        "object has owner or tenant"
+      ]
+    },
+    {
+      "id": "authentication.session-lifecycle",
+      "file": "authentication-session-lifecycle.json",
+      "triggers": [
+        "cookie or bearer session exists",
+        "security state can change"
+      ]
+    },
+    {
+      "id": "api.property-authorization",
+      "file": "api-property-authorization.json",
+      "triggers": [
+        "API accepts structured update",
+        "server-owned properties observed"
+      ]
+    },
+    {
+      "id": "graphql.nested-authorization",
+      "file": "graphql-nested-authorization.json",
+      "triggers": [
+        "GraphQL endpoint observed",
+        "nested objects returned"
+      ]
+    },
+    {
+      "id": "oauth.callback-binding",
+      "file": "oauth-callback-binding.json",
+      "triggers": [
+        "OAuth authorization flow observed",
+        "callback creates session"
+      ]
+    },
+    {
+      "id": "xss.stored-context",
+      "file": "xss-stored-context.json",
+      "triggers": [
+        "controlled input stored",
+        "another controlled role renders it"
+      ]
+    },
+    {
+      "id": "csrf.state-change",
+      "file": "csrf-state-change.json",
+      "triggers": [
+        "cookie authentication",
+        "browser state-changing action"
+      ]
+    },
+    {
+      "id": "ssrf.outbound-fetch",
+      "file": "ssrf-outbound-fetch.json",
+      "triggers": [
+        "feature accepts URL",
+        "server performs fetch"
+      ]
+    },
+    {
+      "id": "race.single-use",
+      "file": "race-single-use.json",
+      "triggers": [
+        "operation has single-use invariant"
+      ]
+    },
+    {
+      "id": "exposure.development-files",
+      "file": "exposure-development-files.json",
+      "triggers": [
+        "web root serves files",
+        "technology evidence supports path"
+      ]
+    }
+  ]
+}

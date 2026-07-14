@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "entrypoints": {
+    "agent_contract": "AGENTS.md",
+    "methodology": "methodology/README.md",
+    "safety": "methodology/00-engagement-gate.md",
+    "playbooks": "playbooks/index.json",
+    "schemas": "schemas/",
+    "state_machine": "agent/state-machine.json",
+    "confidence": "agent/confidence-model.json",
+    "ontology": "ontology/security-ontology.json",
+    "mutations": "mutations/catalog.json",
+    "evidence": "evidence/README.md",
+    "labs": "labs/",
+    "evaluations": "evals/"
+  }
+}

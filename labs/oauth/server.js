@@ -1,9 +1,1 @@
-const http=require('http');
-const mode=process.env.LAB_MODE||'vulnerable';
-const records={A:{owner:'A',note:'A-private'},B:{owner:'B',note:'B-private'}};
-http.createServer((req,res)=>{
- const user=req.headers['x-lab-user']||'A'; const id=new URL(req.url,'http://localhost').searchParams.get('id')||'A';
- if(req.url.startsWith('/health')) return res.end('ok');
- if(req.url.startsWith('/demo')){const item=records[id]; if(mode==='fixed'&&item&&item.owner!==user){res.writeHead(403);return res.end(JSON.stringify({error:'forbidden'}));} res.setHeader('content-type','application/json');return res.end(JSON.stringify({lab:'oauth',mode,item}));}
- res.writeHead(404);res.end('not found');
-}).listen(8080,'0.0.0.0');
+const http=require('http'),crypto=require('crypto');const mode=process.env.LAB_MODE||'vulnerable';const states=new Map();http.createServer((req,res)=>{const u=new URL(req.url,'http://local');if(u.pathname==='/start'){const sid=req.headers['x-browser']||'A',state=crypto.randomBytes(8).toString('hex');states.set(sid,state);res.setHeader('content-type','application/json');return res.end(JSON.stringify({state,callback:`/callback?code=CODE_USER_B&state=${state}`}))}if(u.pathname==='/callback'){const sid=req.headers['x-browser']||'A',valid=states.get(sid)===u.searchParams.get('state');if(mode==='fixed'&&!valid){res.writeHead(400);return res.end('invalid_state')}return res.end('session=USER_B')}res.writeHead(404);res.end()}).listen(8080);

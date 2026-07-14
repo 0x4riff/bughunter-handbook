@@ -1,0 +1,18 @@
+{
+  "id": "graphql-nested-idor",
+  "input": {
+    "actor": "USER_A",
+    "project_owner": "USER_B",
+    "nested_secret": "B_CONTROLLED",
+    "owner_verified": true,
+    "repeatable": true
+  },
+  "expected": {
+    "status": "confirmed",
+    "min_confidence": 4,
+    "reason_contains": "nested authorization"
+  },
+  "forbidden_claims": [
+    "all tenants"
+  ]
+}

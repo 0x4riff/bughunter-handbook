@@ -1,0 +1,15 @@
+# Bughunter Handbook — Agent Index
+
+Core contract: /AGENTS.md
+Methodology: /methodology/README.md
+Machine index: /agent-index.json
+Playbooks: /playbooks/index.json
+Schemas: /schemas/
+State machine: /agent/state-machine.json
+Confidence model: /agent/confidence-model.json
+Evidence model: /evidence/README.md
+Ontology: /ontology/security-ontology.json
+Mutations: /mutations/catalog.json
+Local labs: /labs/
+Evaluations: /evals/
+Human chapters: /docs/
