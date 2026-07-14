@@ -1,0 +1,9 @@
+title = "Bughunter Handbook synthetic-fixture policy"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Historical synthetic marker from local exposed-files teaching lab"
+commits = ["ba877257b87518fbabac7300a41d2c295b3d17be"]
+paths = ["labs/exposed-files/server.js"]
